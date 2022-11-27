@@ -2,10 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Enemy_Frog : MonoBehaviour
+public class Enemy_Frog : Enemy
 {
     [SerializeField] private Rigidbody2D rb;
-    [SerializeField] private Animator Anim;
+    //[SerializeField] private Animator Anim;
     private Collider2D Coll;
     [SerializeField] private LayerMask Ground;
     [SerializeField] private Transform leftpoint, rightpoint;
@@ -15,8 +15,9 @@ public class Enemy_Frog : MonoBehaviour
     private bool Faceleft = true;
 
     // Start is called before the first frame update
-    void Start()
+    protected override void Start()
     {
+        base.Start();
         rb = GetComponent<Rigidbody2D>();
         Anim = GetComponent<Animator>();
         Coll = GetComponent<Collider2D>();
@@ -82,8 +83,12 @@ public class Enemy_Frog : MonoBehaviour
         {
             Anim.SetBool("falling", false);
         }
+
     }
+
+
     
+
 
 
 }
